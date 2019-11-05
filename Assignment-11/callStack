@@ -1,0 +1,65 @@
+Regular Stack
+1) What does the call stack look like (very similar to what I showed on the slides) when execution
+reaches the “what does the stack look like here?” comment.
+
+"use strict";
+function a(x, y) {
+let n = x - y;
+let m = x + y;
+return b(n,m);
+}
+function b(x, y) {
+let something = x / 2;
+let other = y + 3;
+let stuff = c(something + other);
+return (stuff + something) / other;
+}
+function c(n) {
+let m = n * 3;
+debugger;
+// what does the stack look like here?
+return m - 1;
+}
+console.log(a(3,4));
+
+The stack is shown as follows;
+**********Stack c*****************
+n = 9.5;
+m = 28.5
+
+**********Stack b*****************
+x = -1;
+y = 7;
+something = -1/2;
+other = 10;
+***********Stack a****************
+x = 3;
+y = 4;
+n = -1;
+m = 7
+
+
+
+
+Recursion Stack
+2)What does the call stack look like when execution first reaches the if statement 
+
+function min(array) {
+if (array.length > 1) {
+let other = min(array.splice(1));
+if (other < array[0]) { // break here
+return other;
+}
+}
+return array[0];
+}
+console.log(min([3,5,2]));
+
+
+
+***********Stack min([2])****************
+if condition;
+***********Stack min([5,2])**************
+other = min([2]);
+***********Stack min([3,5,2])**************
+other = min([5,2])
