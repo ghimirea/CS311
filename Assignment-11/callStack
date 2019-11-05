@@ -58,8 +58,10 @@ console.log(min([3,5,2]));
 
 
 ***********Stack min([2])****************
-if condition;
+min([2])XXXXXXXXX (This stack goes out) returns 2
 ***********Stack min([5,2])**************
-other = min([2]);
+min([5,2]);     XXXXXXXXXX (This stack goes out) returns 2
+other=????(2)
 ***********Stack min([3,5,2])**************
-other = min([5,2])
+array([3,5,2])
+Other = ????(2)
